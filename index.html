@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maximilian Mahrhofer Portfolio</title>
+  <style>
+    /* Basis-Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+    /* Feste Navigationsleiste */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-around;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1em;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #aaa;
+    }
+    /* Inhalt – hoher Container für Scroll-Demo */
+    .content {
+      padding-top: 80px; /* Platzhalter für die fixe Nav */
+      height: 200vh; /* Damit du scrollen kannst */
+      position: relative;
+    }
+    /* Text mit gleitendem Effekt */
+    .slide-text {
+      position: sticky;
+      top: 100px; 
+      width: 100%;
+      font-size: 2em;
+      text-align: center;
+      /* Die Animation bewirkt, dass der Text von links nach rechts gleitet. */
+      animation: slideLeftRight 3s linear infinite;
+    }
+    @keyframes slideLeftRight {
+      0%   { transform: translateX(0); }
+      50%  { transform: translateX(-50%); }
+      100% { transform: translateX(50%); }
+    }
+
+    
+      @scroll-timeline scrollAnim {
+        source: auto;
+        orientation: block;
+        scroll-offsets: 0%, 100%;
+      }
+    
+      .slide-text {
+        animation: slideLeftRight 1s linear both;
+        animation-timeline: scrollAnim;
+      }
+    
+    
+    /* Mission Statement und Video-Thumbnail */
+    .mission {
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+    .mission .text {
+      width: 60%;
+      font-size: 1.5em;
+    }
+    .mission .video {
+      width: 35%;
+      background: #222;
+      padding: 10px;
+      text-align: center;
+      border: 2px solid #fff;
+    }
+    /* Social Icons */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .social-icons a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">About</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Building in Public</a>
+    <a href="#">Speaking</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="content">
+    <!-- Der gleitende Text – simuliert den gewünschten Effekt -->
+    <div class="slide-text">
+      Alvaro Gellings
+    </div>
+    
+    <!-- Mission-Statement & Video-Thumbnail ähnlich dem Screenshot -->
+    <div class="mission">
+      <div class="text">
+        Meine Mission: Entrepreneure, Talente und Kreativbrands aufbauen, skalieren und finanzieren, um zukünftige Generationen zu stärken.
+      </div>
+      <div class="video">
+        Building Germany’s fastest growing<br>performance Brand.<br>Watch on YouTube.
+      </div>
+    </div>
+    
+    <!-- Social Media Icons -->
+    <div class="social-icons">
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+</body>
+</html>
