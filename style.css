@@ -41,13 +41,13 @@ header{
 .logo{
     font-size: 3rem;
     color: #b74b4b;
-    font-weight: 800;
+    font-weight: 700;
     cursor: pointer;
     transition: 0.5s ease;
 }
 
 .logo:hover{
-    transform: scale(1.1);
+    transform: scale(1.4);
 }
 
 nav a{
@@ -103,13 +103,15 @@ section{
     padding: 5rem 9% 5rem;
 }
 
-.home{
+.home {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: flex-start; 
     gap: 8rem;
     background-color: black;
+    padding-left: 9%; 
 }
+
 
 .home .home-content h1{
     font-size: 6rem;
@@ -129,24 +131,6 @@ span{
 
 .home-content p{
     font-size: 1.6rem;
-}
-
-.home-img{
-    border-radius: 50%;
-}
-
-.home-img img{
-    position: relative;
-    width: 32vw;
-    border-radius: 50%;
-    box-shadow: 0 0 25px solid #b74b4b;
-    cursor: pointer;
-    transition: 0.2s linear;
-}
-
-.home-img img:hover{
-    font-size: 1.8rem;
-    font-weight: 500;
 }
 
 .social-icons a{
@@ -230,24 +214,28 @@ span{
         content: "Web Developer";
     }
     21%, 40%{
-        content: "Developer";
-    }
-    41%, 60%{
         content: "Web Designer";
     }
+    41%, 60%{
+        content: "IT-Security Specialist";
+    }
     61%, 80%{
-        content: "Youtuber";
+        content: "Photographer";
     }
     81%, 100%{
         content: "Script Writer";
     }
 }
 
-@media (max-width: 1000px){
-    .home{
-        gap: 4rem;
+@media(max-width: 995px) {
+    .home {
+        flex-direction: column;
+        align-items: flex-start; /* Inhalt bleibt linksbündig */
+        margin: 5rem 4rem;
+        padding-left: 0;  /* Hier kannst du den Padding je nach Bedarf anpassen */
     }
 }
+
 
 @media(max-width:995px){
     .home{
