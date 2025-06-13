@@ -47,9 +47,16 @@ header{
 }
 
 .logo:hover{
-    transform: scale(1.4);
+    transform: scale(1.1);
 }
 
+.navscroll {
+    background-color: #010000;
+    box-shadow: 0 0 5px #ff000075, 0 0 10px rgb(255, 0, 0), 0 0 20px #ff0000, 0 0 40px #000000;
+    padding: 1rem 6.8rem; 
+    border-radius: 4rem;
+    
+}
 nav a{
     font-size: 1.8rem;
     color: white;
