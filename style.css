@@ -155,6 +155,12 @@ span{
     box-shadow: 0  0 25px #b74b4b;
 }
 
+
+.btn {
+        background-color: #ff0000;
+        box-shadow: 0 0 5px #ff000075, 0 0 10px rgb(255, 0, 0), 0 0 20px #ff0000, 0 0 40px #000000;
+        color: #000;
+}
 .btn{
     display: inline-block;
     padding: 1rem 2.8rem;
@@ -162,6 +168,8 @@ span{
     border-radius: 4rem;
     font-size: 1.6rem;
     color: #b74b4b;
+    
+
     letter-spacing: 0.3rem;
     font-weight: 600;
     border: 2px solid #b74b4b;
