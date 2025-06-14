@@ -24,5 +24,87 @@
         </nav>
     </header>
     
+    <div class="glow-effect"></div>
+  <div class="glow-effect2"></div>
+
+  <section class="home">
+    <div class="home-content">
+      <h1>Hi, It's <span>Max</span></h1>
+      
+    </div>
+  </section>
+
+  <script>
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const nav = document.querySelector("header nav");
+    const menuIcon = menuToggle.querySelector("i");
+
+    menuToggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+    
+    // Toggle Icon
+    if (nav.classList.contains("active")) {
+        menuIcon.classList.remove("fa-bars");
+        menuIcon.classList.add("fa-times");
+    } else {
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
+    }
+    });
+
+
+
+
+    // Typewriter effect
+    const typedTextSpan = document.querySelector(".typewriter");
+    const words = ["Web Developer", "Web Designer", "IT-Security Specialist", "Photographer", "Script Writer"];
+    const typingDelay = 120;
+    const erasingDelay = 100;
+    const pauseDelay = 1000;
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeLoop() {
+        const currentWord = words[wordIndex];
+        if (!isDeleting) {
+        typedTextSpan.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === currentWord.length) {
+            isDeleting = true;
+            setTimeout(typeLoop, pauseDelay); // warten nach vollem Wort
+        } else {
+            setTimeout(typeLoop, typingDelay);
+        }
+        } else {
+        typedTextSpan.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            setTimeout(typeLoop, typingDelay);
+        } else {
+            setTimeout(typeLoop, erasingDelay);
+        }
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        if (words.length > 0) setTimeout(typeLoop, 1000);
+    });
+
+
+    // Navbar scroll behavior
+    const header = document.getElementById("header");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        header.classList.add("navscroll");
+      } else {
+        header.classList.remove("navscroll");
+      }
+    });
+    
+  </script>
 </body>
 </html>
