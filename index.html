@@ -1,46 +1,122 @@
-
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Maximilian Mahrhofer Portfolio Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maximilian Mahrhofer Portfolio Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header class = "navscroll">
-        <a href="#" class="logo">M. Mahrhofer</a>
-        <nav>
-            <a href="#" class="active"> Home</a>
-            <a href="services.html" >Services</a>
-            <a href="skills.html" >Skills</a>
-            <a href="education.html" >Education</a>
-            <a href="experience.html" >Experience</a>
-            <a href="projects.html" >Projects</a>
-            <a href="contact.html" >Contact</a>
-        </nav>
-    </header>
-    <section class="home">
-        <div class="home-content">
-            <h1>Hi, It's <span>Max</span></h1>
-            <h3 class="typing-text">I'm a <span></span></h3>
-            <p>always aiming for the best output and fullfilling your wishes.</p>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/maximilian-mahrhofer-8626732a1/"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/kenji015"><i class="fa-brands fa-github"></i></a>
-                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            </div>
-            <a href="#" class="btn">Hire me</a>
-        </div>
-    </section>
-    <section class="home">
-        <div class="home-content">
-            <h1>Developing</h1>
-            
-        </div>
-    </section>
+  <header id="header">
+    <a href="#" class="logo">M. Mahrhofer</a>
+    <nav>
+      <a href="#" class="active">Home</a>
+      <a href="services.html">Services</a>
+      <a href="skills.html">Skills</a>
+      <a href="education.html">Education</a>
+      <a href="experience.html">Experience</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+  </header>
+
+  <section class="home">
+    <div class="home-content">
+      <h1>Hi, It's <span>Max</span></h1>
+      <h3 class="typing-text">I'm a <span class="typewriter"></span></h3>
+      <p>always aiming for the best output and fulfilling your wishes.</p>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/maximilian-mahrhofer-8626732a1/"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/kenji015"><i class="fa-brands fa-github"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+      <a href="#" class="btn">Hire me</a>
+    </div>
+  </section>
+
+  <section class="home">
+    <div class="home-content">
+      
+    </div>
+  </section>
+
+  <script>
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const nav = document.querySelector("header nav");
+    const menuIcon = menuToggle.querySelector("i");
+
+    menuToggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+    
+    // Toggle Icon
+    if (nav.classList.contains("active")) {
+        menuIcon.classList.remove("fa-bars");
+        menuIcon.classList.add("fa-times");
+    } else {
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
+    }
+    });
+
+
+
+
+    // Typewriter effect
+    const typedTextSpan = document.querySelector(".typewriter");
+    const words = ["Web Developer", "Web Designer", "IT-Security Specialist", "Photographer", "Script Writer"];
+    const typingDelay = 120;
+    const erasingDelay = 100;
+    const pauseDelay = 1000;
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeLoop() {
+        const currentWord = words[wordIndex];
+        if (!isDeleting) {
+        typedTextSpan.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === currentWord.length) {
+            isDeleting = true;
+            setTimeout(typeLoop, pauseDelay); // warten nach vollem Wort
+        } else {
+            setTimeout(typeLoop, typingDelay);
+        }
+        } else {
+        typedTextSpan.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            setTimeout(typeLoop, typingDelay);
+        } else {
+            setTimeout(typeLoop, erasingDelay);
+        }
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        if (words.length > 0) setTimeout(typeLoop, 1000);
+    });
+
+
+    // Navbar scroll behavior
+    const header = document.getElementById("header");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        header.classList.add("navscroll");
+      } else {
+        header.classList.remove("navscroll");
+      }
+    });
+    
+  </script>
 </body>
 </html>

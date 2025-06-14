@@ -23,20 +23,64 @@ body{
     color: white;
 }
 
-header{
-    margin-top: 20px;
+header {
     position: fixed;
-    top: 0;
+    top: 40px;
     left: 0;
     width: 100%;
     padding: 1rem 9%;
-    background-color: transparent;
-    filter: drop-shadow(10px);
+    background-color: black; /* Immer schwarzer Hintergrund */
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    transition: 0.3s ease;
 }
+
+.menu-toggle {
+  display: none;
+  font-size: 3rem;
+  color: #b74b4b;
+  cursor: pointer;
+  z-index: 110;
+}
+
+@media(max-width: 995px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: static;
+    display: none; /* Versteckt standardmäßig */
+    flex-direction: column;
+    background-color: #161616;
+    width: 100%;
+    padding: 1rem 0;
+    margin-top: 1rem;
+    border-top: 2px solid #b74b4b;
+  }
+
+  nav.active {
+    display: flex; /* Menü wird sichtbar */
+  }
+
+  nav a {
+    font-size: 2rem;
+    margin: 1rem 2rem;
+    border-bottom: 1px solid #b74b4b;
+    padding-bottom: 0.5rem;
+  }
+
+  nav a:hover,
+  nav a.active {
+    background-color: #b74b4b;
+    color: black;
+    border-bottom: none;
+    border-radius: 0.5rem;
+  }
+}
+
 
 .logo{
     font-size: 3rem;
@@ -50,13 +94,15 @@ header{
     transform: scale(1.1);
 }
 
-.navscroll {
-    background-color: #010000;
+header.navscroll {
+    margin-top: 40px;
     box-shadow: 0 0 5px #ff000075, 0 0 10px rgb(255, 0, 0), 0 0 20px #ff0000, 0 0 40px #000000;
-    padding: 1rem 6.8rem; 
     border-radius: 4rem;
-    
+    padding: 1rem 4rem; /* Weniger horizontaler Abstand */
+    margin: 0 3rem; /* Etwas Abstand vom linken/rechten Rand */
+    width: calc(100% - 6rem); /* Breite an Margin anpassen */
 }
+
 nav a{
     font-size: 1.8rem;
     color: white;
@@ -199,12 +245,6 @@ span{
 
 .typing-text span{
     position: relative;
-}
-
-.typing-text span::before{
-    content: "software Developer";
-    color: #b74b4b;
-    animation: words 20s infinite;
 }
 
 .typing-text span::after{
