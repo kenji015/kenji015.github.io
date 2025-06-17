@@ -1,0 +1,44 @@
+.projectsTxT {
+    position: fixed;
+    top: 50%;
+    left: 10%;
+    font-size: 4.2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    transform: translateY(-50%);
+    z-index: 1000;
+    color: white;
+}
+
+.fixed-title {
+    white-space: nowrap;
+}
+
+.scrolling-projects {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.project-image-container {
+    position: fixed;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    width: 500px;
+    height: auto;
+    z-index: 999;
+}
+
+.project-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+}
+
+.scrolling-projects span {
+    transition: color 0.3s ease;
+}
