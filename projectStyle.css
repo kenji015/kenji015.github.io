@@ -1,35 +1,46 @@
+body {
+    margin: 0;
+    background: #000;
+    color: white;
+    font-family: sans-serif;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+/* Links: Text fix */
 .projectsTxT {
     position: fixed;
-    top: 50%;
+    top: 60%;
     left: 10%;
+    transform: translateY(-50%);
     font-size: 4.2rem;
     display: flex;
     align-items: flex-start;
     gap: 2rem;
-    transform: translateY(-50%);
-    z-index: 1000;
-    color: white;
+    z-index: 100;
 }
 
 .fixed-title {
     white-space: nowrap;
 }
 
+/* Rechts: Scroll-Text */
 .scrolling-projects {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     transition: transform 0.3s ease;
 }
 
+/* Bild rechts */
 .project-image-container {
     position: fixed;
     top: 50%;
     right: 10%;
     transform: translateY(-50%);
     width: 500px;
-    height: auto;
-    z-index: 999;
+    max-height: 80vh;
+    z-index: -1;
 }
 
 .project-image-container img {
@@ -39,6 +50,7 @@
     transition: opacity 0.5s ease;
 }
 
-.scrolling-projects span {
-    transition: color 0.3s ease;
+/* Fake Scroll: So lang wie nötig */
+.scroll-space {
+    height: 200vh; /* genug Platz zum Scrollen */
 }

@@ -22,106 +22,65 @@
         </nav>
     </header>
 
+    <!-- Fixe Textzeile -->
     <div class="projectsTxT">
         <span class="fixed-title">Projects –</span>
         <div class="scrolling-projects">
-            <span>MyGYM</span>
-            <span>Dancer</span>
-            <span>Trident</span>
+            <span data-img="mygym.jpg">MyGYM</span>
+            <span data-img="dancer.jpg">Dancer</span>
+            <span data-img="trident.jpg">Trident</span>
         </div>
     </div>
 
-    <!-- Container für die Projektbilder -->
+    <!-- Bildcontainer -->
     <div class="project-image-container">
-    <img id="project-image" src="mygym.jpg" alt="Project Image" />
+        <img id="project-image" src="mygym.jpg" alt="Project Image" />
     </div>
+
+    <!-- Fake Scroll Space -->
+    <div class="scroll-space"></div>
 
     <div class="glow-effect"></div>
     <div class="glow-effect2"></div>
 
     <script>
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const scrollTitle = document.querySelector('.scroll-title');
+      const scrollingProjects = document.querySelectorAll('.scrolling-projects span');
+const scrollingProjectsContainer = document.querySelector('.scrolling-projects');
+const image = document.getElementById('project-image');
 
-            if (scrollTitle) {
-            scrollTitle.style.transform = `translateY(${Math.max(-scrollY * 0.3, -100)}px)`;
-            }
-        });
-    </script>
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
 
+  // Verschiebe den Scroll-Text Container nach oben mit der Scrollposition
+  scrollingProjectsContainer.style.transform = `translateY(${-scrollY}px)`;
 
-    <script>
+  // Position der Projekte berechnen für Bildwechsel und Highlight
+  const containerTop = document.querySelector('.projectsTxT').getBoundingClientRect().top + window.scrollY;
+  const fixedLine = window.innerHeight / 2; // Mitte des Viewports
 
-        const menuToggle = document.getElementById("menu-toggle");
-        const nav = document.querySelector("header nav");
-        const menuIcon = menuToggle.querySelector("i");
+  scrollingProjects.forEach((project, index) => {
+    // Position des Projekts relativ zur Seite (scrollende rechte Liste)
+    const elementTop = containerTop + index * 80 - scrollY;
 
-        menuToggle.addEventListener("click", () => {
-        nav.classList.toggle("active");
-        
-        // Toggle Icon
-        if (nav.classList.contains("active")) {
-            menuIcon.classList.remove("fa-bars");
-            menuIcon.classList.add("fa-times");
-        } else {
-            menuIcon.classList.remove("fa-times");
-            menuIcon.classList.add("fa-bars");
-        }
-        });
+    // Prüfen, ob das Projekt ungefähr auf Höhe der Fix-Linie ist (links fixierter Text)
+    if (Math.abs(elementTop - fixedLine) < 40) {
+      // Bild wechseln, falls anders
+      const newImg = project.dataset.img;
+      if (image.src.indexOf(newImg) === -1) {
+        image.style.opacity = 0;
+        setTimeout(() => {
+          image.src = newImg;
+          image.style.opacity = 1;
+        }, 200);
+      }
 
+      // Nur das aktuelle Element weiß, andere grau
+      scrollingProjects.forEach(p => p.style.color = "#888");
+      project.style.color = "#fff";
+    }
+  });
+});
 
-
-
-        // Typewriter effect
-        const typedTextSpan = document.querySelector(".typewriter");
-        const words = ["Web Developer", "Web Designer", "IT-Security Specialist", "Photographer", "Script Writer"];
-        const typingDelay = 120;
-        const erasingDelay = 100;
-        const pauseDelay = 1000;
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function typeLoop() {
-            const currentWord = words[wordIndex];
-            if (!isDeleting) {
-            typedTextSpan.textContent = currentWord.substring(0, charIndex + 1);
-            charIndex++;
-            if (charIndex === currentWord.length) {
-                isDeleting = true;
-                setTimeout(typeLoop, pauseDelay); // warten nach vollem Wort
-            } else {
-                setTimeout(typeLoop, typingDelay);
-            }
-            } else {
-            typedTextSpan.textContent = currentWord.substring(0, charIndex - 1);
-            charIndex--;
-            if (charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                setTimeout(typeLoop, typingDelay);
-            } else {
-                setTimeout(typeLoop, erasingDelay);
-            }
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            if (words.length > 0) setTimeout(typeLoop, 1000);
-        });
-
-
-        // Navbar scroll behavior
-        const header = document.getElementById("header");
-        window.addEventListener("scroll", () => {
-        if (window.scrollY > 10) {
-            header.classList.add("navscroll");
-        } else {
-            header.classList.remove("navscroll");
-        }
-        });
-        
     </script>
 </body>
 </html>

@@ -81,7 +81,6 @@ header {
   }
 }
 
-
 .logo{
     font-size: 3rem;
     color: #b74b4b;
@@ -392,5 +391,39 @@ section{
     opacity: 1;
   }
 }
+
+/*Hier der Code für Education*/
+
+.dot {
+  height: 25px;
+  width: 25px;
+  position: fixed;
+  background-color: #b74b4b;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  z-index: 10;
+  border: 2px solid transparent;
+}
+
+/* Verbindungslinie zwischen den Punkten */
+.rectangle {
+  height: 100px;
+  width: 10px;
+  position: fixed;
+  top: 38%;
+  left: 15.6%;
+  background-color: #b74b4b;
+  border-radius: 0;
+  z-index: 5;
+}
+
+/* Leuchtender Zustand für aktive Punkte */
+.dot.active {
+  background-color: #ff0000;
+  box-shadow: 0 0 15px 5px #ff0000;
+  border-color: #ff0000;
+}
+
 
 

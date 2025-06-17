@@ -10,31 +10,72 @@
     <title>Maximilian Mahrhofer Portfolio Website</title>
 </head>
 <body>
-    <header>
-        <a href="index.html" class="logo">M. Mahrhofer</a>
-
-        <nav>
-            <a href="index.html" > Home</a>
-            <a href="services.html" >Services</a>
-            <a href="skills.html" >Skills</a>
-            <a href="education.html" class="active">Education</a>
-            <a href="experience.html" >Experience</a>
-            <a href="projects.html" >Projects</a>
-            <a href="contact.html" >Contact</a>
-        </nav>
-    </header>
+    <header id="header">
+    <a href="#" class="logo">M. Mahrhofer</a>
+    <nav>
+      <a href="#" class="active">Home</a>
+      <a href="services.html">Services</a>
+      <a href="skills.html">Skills</a>
+      <a href="education.html">Education</a>
+      <a href="experience.html">Experience</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+  </header>
     
-    <div class="glow-effect"></div>
+  <div class="glow-effect"></div>
   <div class="glow-effect2"></div>
 
-  <section class="home">
-    <div class="home-content">
-      <h1>Hi, It's <span>Max</span></h1>
-      
-    </div>
-  </section>
+  <!-- Punkt 1 -->
+  <span class="dot" id="dot1" style="top: 35%; left: 15%;"></span>
+  <!-- Verbindungslinie -->
+  <span class="rectangle"></span>
+  <!-- Punkt 2 -->
+  <span class="dot" id="dot2" style="top: 50%; left: 15%;"></span>
+
+  <!-- Rechts der Textbereich -->
+  <div id="education-text" style="position: fixed; top: 35%; right: 15%; width: 50%; color: white; font-size: 1.8rem;">
+    <!-- Text erscheint hier erst beim Klick -->
+  </div>
+
+
 
   <script>
+
+    const dots = document.querySelectorAll(".dot");
+    const educationText = document.getElementById("education-text");
+
+    // Texte zu den Punkten
+    const texts = {
+      dot1: `
+        <h2>Technologische Gewerbemuseum</h2>
+        <p>Hier ist der ausführliche Text zur ersten Ausbildung.</p>
+      `,
+      dot2: `
+        <h2>Ausbildung 2</h2>
+        <p>Hier ist der ausführliche Text zur zweiten Ausbildung.</p>
+      `
+    };
+
+    dots.forEach(dot => {
+      dot.addEventListener("click", () => {
+        // Alle Punkte "aus" setzen
+        dots.forEach(d => d.classList.remove("active"));
+
+        // Aktivieren des angeklickten Punktes
+        dot.classList.add("active");
+
+        // Text rechts aktualisieren
+        educationText.innerHTML = texts[dot.id];
+      });
+    });
+
+    // Anfangs kein Text anzeigen
+    educationText.innerHTML = "";
+
 
     const menuToggle = document.getElementById("menu-toggle");
     const nav = document.querySelector("header nav");
@@ -52,9 +93,6 @@
         menuIcon.classList.add("fa-bars");
     }
     });
-
-
-
 
     // Typewriter effect
     const typedTextSpan = document.querySelector(".typewriter");
@@ -94,7 +132,6 @@
         if (words.length > 0) setTimeout(typeLoop, 1000);
     });
 
-
     // Navbar scroll behavior
     const header = document.getElementById("header");
     window.addEventListener("scroll", () => {
@@ -104,7 +141,6 @@
         header.classList.remove("navscroll");
       }
     });
-    
   </script>
 </body>
 </html>
