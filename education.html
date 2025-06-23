@@ -13,7 +13,7 @@
     <header id="header">
     <a href="#" class="logo">M. Mahrhofer</a>
     <nav>
-      <a href="#" class="active">Home</a>
+      <a href="index.html" class="active">Home</a>
       <a href="services.html">Services</a>
       <a href="skills.html">Skills</a>
       <a href="education.html">Education</a>
@@ -30,11 +30,11 @@
   <div class="glow-effect2"></div>
 
   <!-- Punkt 1 -->
-  <span class="dot" id="dot1" style="top: 35%; left: 15%;"></span>
+  <span class="dot1" id="dot1"></span>
   <!-- Verbindungslinie -->
   <span class="rectangle"></span>
   <!-- Punkt 2 -->
-  <span class="dot" id="dot2" style="top: 50%; left: 15%;"></span>
+  <span class="dot2" id="dot2"></span>
 
   <!-- Rechts der Textbereich -->
   <div id="education-text" style="position: fixed; top: 35%; right: 15%; width: 50%; color: white; font-size: 1.8rem;">
@@ -141,6 +141,23 @@
         header.classList.remove("navscroll");
       }
     });
+
+  function adjustEducationLayout() {
+    if (window.innerWidth <= 768) {
+      educationText.style.position = "static";
+      educationText.style.width = "90%";
+      educationText.style.margin = "2rem auto";
+    } else {
+      educationText.style.position = "fixed";
+      educationText.style.top = "35%";
+      educationText.style.right = "15%";
+      educationText.style.width = "50%";
+    }
+  }
+
+  window.addEventListener("resize", adjustEducationLayout);
+  window.addEventListener("DOMContentLoaded", adjustEducationLayout);
+
   </script>
 </body>
 </html>

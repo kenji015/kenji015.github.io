@@ -54,7 +54,7 @@ header {
     position: static;
     display: none; /* Versteckt standardmäßig */
     flex-direction: column;
-    background-color: #161616;
+    background-color: #000000;
     width: 100%;
     padding: 1rem 0;
     margin-top: 1rem;
@@ -112,43 +112,49 @@ nav a{
     border-bottom: 3px solid transparent;
 }
 
-nav a:hover,
-nav a.active{
+
+
+@media (max-width: 995px) {
+  header {
+    flex-direction: row; /* horizontale Ausrichtung */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Erlaubt Umbruch der Nav bei Bedarf */
+    padding: 1rem 2rem;
+  }
+
+  .menu-toggle {
+    order: 2;
+    margin-left: auto;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav a {
+    font-size: 1.6rem;
+    padding: 0.8rem 2rem;
+    border-bottom: 1px solid #b74b4b;
+    width: fit-content;
+    margin-left: 30%;
+    align-items: center;
+  }
+
+  nav a:hover,
+  nav a.active {
+    background: none;
     color: #b74b4b;
-    border-bottom: 3px solid #b74b4b;
-}
-
-@media(max-width:995px){
-    nav{
-        position: absolute;
-        display: none;
-        top: 0;
-        right: 0;
-        width: 40%;
-        border-left: 3px solid #b74b4b;
-        border-bottom: 3px solid #b74b4b;
-        border-bottom-left-radius: 2rem;
-        padding: 1rem solid;
-        background-color: #161616;
-        border-top: 0.1rem solid rgba(0,0,0,0.1);
-    }
-
-    nav.active{
-        display: block;
-    }
-
-    nav a{
-        display: block;
-        font-size: 2rem;
-        margin: 3rem 0;
-    }
-
-    nav a:hover,
-    nav a.active{
-        padding: 1rem;
-        border-radius: 0.5rem;
-        border-bottom: 0.5rem solid #b74b4b;
-    }
+    border-bottom-color: #b74b4b;
+  }
 }
 
 section{
@@ -392,9 +398,13 @@ section{
   }
 }
 
+
+
 /*Hier der Code für Education*/
 
-.dot {
+.dot1 {
+  top: 35%; 
+  left: 15%;
   height: 25px;
   width: 25px;
   position: fixed;
@@ -404,6 +414,20 @@ section{
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
   z-index: 10;
   border: 2px solid transparent;
+}
+
+.dot2{
+    top: 50%; 
+    left: 15%;
+    height: 25px;
+    width: 25px;
+    position: fixed;
+    background-color: #b74b4b;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    z-index: 10;
+    border: 2px solid transparent;
 }
 
 /* Verbindungslinie zwischen den Punkten */
@@ -424,6 +448,55 @@ section{
   box-shadow: 0 0 15px 5px #ff0000;
   border-color: #ff0000;
 }
+
+@media (max-width: 768px) {
+  .dot1 {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    left: 60% !important;
+    top: 30%;
+  }
+
+  .dot2 {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    left: 30% !important;
+    top: 30%;
+  }
+
+  .rectangle {
+    position: fixed;
+    width: 150px;
+    height: 6px;
+    left: 31% !important;
+    top: 31%;
+  }
+
+  #education-text {
+    position: relative !important; /* Von fixed zu normalem Flow */
+    top: auto !important;
+    right: auto !important;
+    width: 90%;
+    margin: 2rem auto 0 auto;
+    font-size: 1.6rem;
+    padding: 1rem;
+    text-align: left;
+    z-index: 5;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+  }
+
+  body {
+    padding-top: 80px; /* Platz für fixierten Header schaffen */
+  }
+}
+
+
 
 
 
