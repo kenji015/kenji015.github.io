@@ -57,7 +57,7 @@ header {
     background-color: #000000;
     width: 100%;
     padding: 1rem 0;
-    margin-top: 1rem;
+    margin-top: 10rem;
     border-top: 2px solid #b74b4b;
   }
 
@@ -95,12 +95,12 @@ header {
 
 header.navscroll {
     background-color: black;
-    margin-top: 40px;
+    margin: 3rem;
+    margin-top: 10px;
     box-shadow: 0 0 5px #ff000075, 0 0 10px rgb(255, 0, 0), 0 0 20px #ff0000, 0 0 40px #000000;
     border-radius: 4rem;
-    padding: 1rem 4rem; /* Weniger horizontaler Abstand */
-    margin: 0 3rem; /* Etwas Abstand vom linken/rechten Rand */
-    width: calc(100% - 6rem); /* Breite an Margin anpassen */
+    padding: 1rem 4rem;
+    width: calc(100% - 6rem);
 }
 
 nav a{
@@ -131,13 +131,18 @@ nav a{
   nav {
     order: 3;
     width: 100%;
-    display: none;
+    display: flex;
     flex-direction: column;
     margin-top: 1rem;
+
+    /* Animationseigenschaften */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
   }
 
   nav.active {
-    display: flex;
+    max-height: 500px; /* Anpassen je nach Anzahl der Links */
   }
 
   nav a {
@@ -250,6 +255,13 @@ section{
     min-width: 280px;
 }
 
+@media (max-width: 995px) {
+    .typing-text{
+        font-size: 34px;
+        font-weight: 600;
+        min-width: 280px;
+    }
+}
 .typing-text span{
     position: relative;
 }
@@ -496,6 +508,90 @@ section{
   }
 }
 
+/* Schriftgrößen für Handys*/
+@media (max-width: 768px) {
+    
+    .header {
+        font-size: 1rem;
+    }
+
+
+    .home .home-content h1 {
+        font-size: 4rem;
+    }
+
+    .home .home-content h3 {
+        font-size: 2rem;
+    }
+
+    .home-content p {
+        font-size: 1.4rem;
+    }
+
+    nav a {
+        font-size: 1.4rem;
+    }
+
+    .typing-text {
+        font-size: 2.2rem;
+    }
+
+    .btn {
+        font-size: 1.4rem;
+        padding: 0.8rem 2rem;
+    }
+
+    .logo {
+        font-size: 2.2rem;
+    }
+
+    .social-icons a {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.6rem;
+        margin: 2rem 1rem 2rem 0;
+    }
+
+    section {
+        padding: 4rem 5%;
+    }
+}
+
+@media (max-width: 995px) {
+
+    .nav-position{
+        margin-top: 4%;    
+    }
+
+    .home .home-content h1 {
+        font-size: 4rem;
+    }
+
+    .home .home-content h3 {
+        font-size: 2.2rem;
+    }
+
+    .home-content p {
+        font-size: 1.5rem;
+    }
+
+    nav a {
+        font-size: 1.6rem;
+    }
+
+    .typing-text {
+        font-size: 2.8rem;
+    }
+
+    .btn {
+        font-size: 1.5rem;
+    }
+
+    .logo {
+        margin-left: 3%;
+        font-size: 3.5rem;
+    }
+}
 
 
 
