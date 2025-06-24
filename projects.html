@@ -24,18 +24,25 @@
 
     <!-- Fixe Textzeile -->
     <div class="projectsTxT">
-        <span class="fixed-title">Projects –</span>
-        <div class="scrolling-projects">
-            <span data-img="mygym.jpg">MyGYM</span>
-            <span data-img="dancer.jpg">Dancer</span>
-            <span data-img="trident.jpg">Trident</span>
-        </div>
+      <span class="fixed-title">Projects –</span>
+      <div class="scrolling-projects">
+        <span data-img="MyGymLogo_WHITE_TRANSPARENT.png">MyGYM</span>
+        <span data-img="TapTagLogo.png">TapTag</span>
+        <span data-img="TridentLogo.png">Trident</span>
+      </div>
     </div>
 
     <!-- Bildcontainer -->
-    <div class="project-image-container">
-        <img id="project-image" src="mygym.jpg" alt="Project Image" />
+  <div class="project-image-container">
+    <img id="project-image" src="pictures/" alt="Project Image" />
+
+    <div class="project-info">
+      <p id="project-description">Trainingsapp mit Fokus auf Benutzerfreundlichkeit.</p>
+      <a id="project-link" href="https://projekte.tgm.ac.at/3dhit/mmahrhofer/content/MyGym/view_files/home.php" class="project-button">Mehr zum Projekt</a>
     </div>
+  </div>
+
+
 
     <!-- Fake Scroll Space -->
     <div class="scroll-space"></div>
@@ -43,44 +50,77 @@
     <div class="glow-effect"></div>
     <div class="glow-effect2"></div>
 
-    <script>
-      const scrollingProjects = document.querySelectorAll('.scrolling-projects span');
-const scrollingProjectsContainer = document.querySelector('.scrolling-projects');
+    
+
+
+  <script>
+  const scrollingProjects = document.querySelectorAll('.scrolling-projects span');
 const image = document.getElementById('project-image');
+const desc = document.getElementById('project-description');
+const link = document.getElementById('project-link');
 
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
+// Zuordnung Projektname → Beschreibung & Link
+const projectData = {
+  "MyGYM": {
+    img: "MyGymLogo_WHITE_TRANSPARENT.png",
+    desc: "Trainingsapp mit Fokus auf Benutzerfreundlichkeit.",
+    link: "mygym.html"
+  },
+  "TapTag": {
+    img: "TapTagPreview.png",
+    desc: "Social NFC-Plattform zur digitalen Kontaktvernetzung.",
+    link: "taptag.html"
+  },
+  "Trident": {
+    img: "TridentDashboard.png",
+    desc: "Webbasiertes Tool für Wasseranalysen und Simulationen.",
+    link: "trident.html"
+  }
+};
 
-  // Verschiebe den Scroll-Text Container nach oben mit der Scrollposition
-  scrollingProjectsContainer.style.transform = `translateY(${-scrollY}px)`;
+function updateImageOnScroll() {
+  const fixedTitle = document.querySelector('.fixed-title');
+  const fixedLineY = fixedTitle.getBoundingClientRect().top;
 
-  // Position der Projekte berechnen für Bildwechsel und Highlight
-  const containerTop = document.querySelector('.projectsTxT').getBoundingClientRect().top + window.scrollY;
-  const fixedLine = window.innerHeight / 2; // Mitte des Viewports
+  scrollingProjects.forEach(project => {
+    const rect = project.getBoundingClientRect();
+    const projectCenterY = rect.top + rect.height / 2;
 
-  scrollingProjects.forEach((project, index) => {
-    // Position des Projekts relativ zur Seite (scrollende rechte Liste)
-    const elementTop = containerTop + index * 80 - scrollY;
+    if (Math.abs(projectCenterY - fixedLineY) < rect.height / 2) {
+      const projectName = project.textContent.trim();
+      const data = projectData[projectName];
 
-    // Prüfen, ob das Projekt ungefähr auf Höhe der Fix-Linie ist (links fixierter Text)
-    if (Math.abs(elementTop - fixedLine) < 40) {
-      // Bild wechseln, falls anders
-      const newImg = project.dataset.img;
-      if (image.src.indexOf(newImg) === -1) {
+      if (data && !image.src.includes(data.img)) {
         image.style.opacity = 0;
+        desc.style.opacity = 0;
+        link.style.opacity = 0;
+
         setTimeout(() => {
-          image.src = newImg;
+          image.src = `pictures/${data.img}`;
+          desc.textContent = data.desc;
+          link.href = data.link;
+
           image.style.opacity = 1;
+          desc.style.opacity = 1;
+          link.style.opacity = 1;
         }, 200);
       }
 
-      // Nur das aktuelle Element weiß, andere grau
       scrollingProjects.forEach(p => p.style.color = "#888");
       project.style.color = "#fff";
     }
   });
+}
+
+window.addEventListener('scroll', () => {
+  const projectsContainer = document.querySelector('.scrolling-projects');
+  projectsContainer.style.transform = `translateY(${-window.scrollY}px)`;
+  updateImageOnScroll();
 });
 
-    </script>
+window.addEventListener('load', updateImageOnScroll);
+
+</script>
+
 </body>
 </html>
