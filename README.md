@@ -9,3 +9,6 @@ This is my personal Portfolio-Site, including:
 - Experience
 - Projects
 - Contact
+
+To visit:
+kenji015.github.com
