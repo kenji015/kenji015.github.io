@@ -11,4 +11,4 @@ This is my personal Portfolio-Site, including:
 - Contact
 
 To visit:
-kenji015.github.com
+kenji015.github.io
