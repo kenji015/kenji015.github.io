@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maximilian Mahrhofer Portfolio Website</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="static/style.css" />
 </head>
+
 <body>
   <header id="header" class="nav-position">
     <a href="#" class="logo">M. Mahrhofer</a>
@@ -20,7 +22,7 @@
       <a href="contact.html">Contact</a>
     </nav>
     <div class="menu-toggle" id="menu-toggle">
-        <i class="fas fa-bars"></i>
+      <i class="fas fa-bars"></i>
     </div>
   </header>
 
@@ -44,8 +46,16 @@
 
   <section class="home">
     <div class="home-content">
-      <h1>Hi, It's <span>Max</span></h1>
-      
+      <h1>Let's <span class="neon-orange">connect</span></h1>
+    </div>
+    <div class="form-container">
+      <h2>Send message</h2>
+      <form>
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="Your mail address" required>
+        <textarea rows="4" placeholder="Your message..." required></textarea>
+        <button type="submit">Send</button>
+      </form>
     </div>
   </section>
 
@@ -55,16 +65,16 @@
     const menuIcon = menuToggle.querySelector("i");
 
     menuToggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
-    
-    // Toggle Icon
-    if (nav.classList.contains("active")) {
+      nav.classList.toggle("active");
+
+      // Toggle Icon
+      if (nav.classList.contains("active")) {
         menuIcon.classList.remove("fa-bars");
         menuIcon.classList.add("fa-times");
-    } else {
+      } else {
         menuIcon.classList.remove("fa-times");
         menuIcon.classList.add("fa-bars");
-    }
+      }
     });
 
     // Typewriter effect
@@ -78,31 +88,31 @@
     let isDeleting = false;
 
     function typeLoop() {
-        const currentWord = words[wordIndex];
-        if (!isDeleting) {
+      const currentWord = words[wordIndex];
+      if (!isDeleting) {
         typedTextSpan.textContent = currentWord.substring(0, charIndex + 1);
         charIndex++;
         if (charIndex === currentWord.length) {
-            isDeleting = true;
-            setTimeout(typeLoop, pauseDelay); // warten nach vollem Wort
+          isDeleting = true;
+          setTimeout(typeLoop, pauseDelay); // warten nach vollem Wort
         } else {
-            setTimeout(typeLoop, typingDelay);
+          setTimeout(typeLoop, typingDelay);
         }
-        } else {
+      } else {
         typedTextSpan.textContent = currentWord.substring(0, charIndex - 1);
         charIndex--;
         if (charIndex === 0) {
-            isDeleting = false;
-            wordIndex = (wordIndex + 1) % words.length;
-            setTimeout(typeLoop, typingDelay);
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          setTimeout(typeLoop, typingDelay);
         } else {
-            setTimeout(typeLoop, erasingDelay);
+          setTimeout(typeLoop, erasingDelay);
         }
-        }
+      }
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-        if (words.length > 0) setTimeout(typeLoop, 1000);
+      if (words.length > 0) setTimeout(typeLoop, 1000);
     });
 
     // Navbar scroll behavior
@@ -114,7 +124,8 @@
         header.classList.remove("navscroll");
       }
     });
-    
+
   </script>
 </body>
+
 </html>
