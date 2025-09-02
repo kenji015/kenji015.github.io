@@ -1,16 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="static/style.css">
-    <title>Maximilian Mahrhofer Portfolio Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="static/education.css">
+  <title>Maximilian Mahrhofer Portfolio Website</title>
 </head>
 <body>
-    <header id="header">
+  <header id="header">
     <a href="../index.html" class="logo">M. Mahrhofer</a>
     <nav>
       <a href="../index.html" class="active">Home</a>
@@ -22,116 +21,22 @@
       <a href="contact.html">Contact</a>
     </nav>
     <div class="menu-toggle" id="menu-toggle">
-        <i class="fas fa-bars"></i>
+      <i class="fas fa-bars"></i>
     </div>
   </header>
-    
+
   <div class="glow-effect"></div>
   <div class="glow-effect2"></div>
 
-  <!-- Punkt 1 -->
-  <span class="dot1" id="dot1"></span>
-  <!-- Verbindungslinie -->
-  <span class="rectangle"></span>
-  <!-- Punkt 2 -->
-  <span class="dot2" id="dot2"></span>
-
-  <!-- Rechts der Textbereich -->
-  <div id="education-text" style="position: fixed; top: 35%; right: 15%; width: 50%; color: white; font-size: 1.8rem;">
-    <!-- Text erscheint hier erst beim Klick -->
-  </div>
-
-
+  <section class="home">
+    <h1 class= "education-head">My Education</h1>
+    <div class="education-buttons">
+        <button>BVS</button>
+        <button>TGM</button>
+      </div>
+  </section>
 
   <script>
-
-    const dots = document.querySelectorAll(".dot");
-    const educationText = document.getElementById("education-text");
-
-    // Texte zu den Punkten
-    const texts = {
-      dot1: `
-        <h2>Technologische Gewerbemuseum</h2>
-        <p>Hier ist der ausführliche Text zur ersten Ausbildung.</p>
-      `,
-      dot2: `
-        <h2>Ausbildung 2</h2>
-        <p>Hier ist der ausführliche Text zur zweiten Ausbildung.</p>
-      `
-    };
-
-    dots.forEach(dot => {
-      dot.addEventListener("click", () => {
-        // Alle Punkte "aus" setzen
-        dots.forEach(d => d.classList.remove("active"));
-
-        // Aktivieren des angeklickten Punktes
-        dot.classList.add("active");
-
-        // Text rechts aktualisieren
-        educationText.innerHTML = texts[dot.id];
-      });
-    });
-
-    // Anfangs kein Text anzeigen
-    educationText.innerHTML = "";
-
-
-    const menuToggle = document.getElementById("menu-toggle");
-    const nav = document.querySelector("header nav");
-    const menuIcon = menuToggle.querySelector("i");
-
-    menuToggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
-    
-    // Toggle Icon
-    if (nav.classList.contains("active")) {
-        menuIcon.classList.remove("fa-bars");
-        menuIcon.classList.add("fa-times");
-    } else {
-        menuIcon.classList.remove("fa-times");
-        menuIcon.classList.add("fa-bars");
-    }
-    });
-
-    // Typewriter effect
-    const typedTextSpan = document.querySelector(".typewriter");
-    const words = ["Web Developer", "Web Designer", "IT-Security Specialist", "Photographer", "Script Writer"];
-    const typingDelay = 120;
-    const erasingDelay = 100;
-    const pauseDelay = 1000;
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function typeLoop() {
-        const currentWord = words[wordIndex];
-        if (!isDeleting) {
-        typedTextSpan.textContent = currentWord.substring(0, charIndex + 1);
-        charIndex++;
-        if (charIndex === currentWord.length) {
-            isDeleting = true;
-            setTimeout(typeLoop, pauseDelay); // warten nach vollem Wort
-        } else {
-            setTimeout(typeLoop, typingDelay);
-        }
-        } else {
-        typedTextSpan.textContent = currentWord.substring(0, charIndex - 1);
-        charIndex--;
-        if (charIndex === 0) {
-            isDeleting = false;
-            wordIndex = (wordIndex + 1) % words.length;
-            setTimeout(typeLoop, typingDelay);
-        } else {
-            setTimeout(typeLoop, erasingDelay);
-        }
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-        if (words.length > 0) setTimeout(typeLoop, 1000);
-    });
-
     // Navbar scroll behavior
     const header = document.getElementById("header");
     window.addEventListener("scroll", () => {
@@ -142,22 +47,7 @@
       }
     });
 
-  function adjustEducationLayout() {
-    if (window.innerWidth <= 768) {
-      educationText.style.position = "static";
-      educationText.style.width = "90%";
-      educationText.style.margin = "2rem auto";
-    } else {
-      educationText.style.position = "fixed";
-      educationText.style.top = "35%";
-      educationText.style.right = "15%";
-      educationText.style.width = "50%";
-    }
-  }
-
-  window.addEventListener("resize", adjustEducationLayout);
-  window.addEventListener("DOMContentLoaded", adjustEducationLayout);
-
+    
   </script>
 </body>
 </html>
