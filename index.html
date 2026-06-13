@@ -1,133 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maximilian Mahrhofer Portfolio Website</title>
+  <title>Maximilian Mahrhofer | Full Stack Developer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="src/static/style.css"/>
-  <link rel="stylesheet" href="src/static/index.css"/>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body>
-  <header id="header" class="nav-position">
-    <a href="#" class="logo">M. Mahrhofer</a>
+  <header id="header">
+    <a href="index.html" class="logo">M. Mahrhofer</a>
     <nav>
-      <a href="#" class="active">Home</a>
-      <a href="src/services.html">Services</a>
-      <a href="src/skills.html">Skills</a>
-      <a href="src/education.html">Education</a>
-      <a href="src/experience.html">Experience</a>
-      <a href="src/projects.html">Projects</a>
-      <a href="src/contact.html">Contact</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="pages/services.html">Services</a>
+      <a href="pages/skills.html">Skills</a>
+      <a href="pages/education.html">Education</a>
+      <a href="pages/experience.html">Experience</a>
+      <a href="pages/projects.html">Projects</a>
+      <a href="pages/contact.html">Contact</a>
     </nav>
     <div class="menu-toggle" id="menu-toggle">
       <i class="fas fa-bars"></i>
     </div>
   </header>
 
+  <!-- HERO SECTION -->
   <section class="home">
     <div class="home-content">
-      <h1>Hi, It's <span class="span-color">Max</span></h1>
+      <h1>Hi, I'm <span class="span-color">Max</span></h1>
       <h3 class="typing-text">I'm a <span class="typewriter"></span></h3>
-      <p>always aiming for the best output and fulfilling your wishes.</p>
+      <p>Always aiming for the best output and fulfilling your wishes.</p>
+
       <div class="social-icons">
-        <a href="https://www.linkedin.com/in/maximilian-mahrhofer-8626732a1/"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://github.com/kenji015"><i class="fa-brands fa-github"></i></a>
-        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/maximilian-mahrhofer-8626732a1/" target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/kenji015" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
       </div>
-      <a href="#" class="btn">Hire me</a>
+
+      <a href="pages/contact.html" class="btn">Get in Touch</a>
     </div>
   </section>
 
+  <!-- GLOW EFFECTS -->
   <div class="glow-effect"></div>
   <div class="glow-effect2"></div>
 
+  <!-- CONTACT SECTION -->
   <section class="home">
-    <div class="home-content">
-      <h1>Let's <span class="neon-orange">connect</span></h1>
-    </div>
+    <h2>Let's <span class="span-color">Connect</span></h2>
     <div class="form-container">
-      <h2>Send message</h2>
+      <h2>Send Message</h2>
       <form>
-        <input type="text" placeholder="Your name" required>
-        <input type="email" placeholder="Your mail address" required>
-        <textarea rows="4" placeholder="Your message..." required></textarea>
-        <button type="submit">Send</button>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email Address" required />
+        <textarea rows="5" placeholder="Your Message..." required></textarea>
+        <button type="submit">Send Message</button>
       </form>
-      
     </div>
   </section>
 
-  <script>
-    const menuToggle = document.getElementById("menu-toggle");
-    const nav = document.querySelector("header nav");
-    const menuIcon = menuToggle.querySelector("i");
-
-    menuToggle.addEventListener("click", () => {
-      nav.classList.toggle("active");
-
-      // Toggle Icon
-      if (nav.classList.contains("active")) {
-        menuIcon.classList.remove("fa-bars");
-        menuIcon.classList.add("fa-times");
-      } else {
-        menuIcon.classList.remove("fa-times");
-        menuIcon.classList.add("fa-bars");
-      }
-    });
-
-    // Typewriter effect
-    const typedTextSpan = document.querySelector(".typewriter");
-    const words = ["Web Developer", "Web Designer", "IT-Security Specialist", "Photographer", "Script Writer"];
-    const typingDelay = 120;
-    const erasingDelay = 100;
-    const pauseDelay = 1000;
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function typeLoop() {
-      const currentWord = words[wordIndex];
-      if (!isDeleting) {
-        typedTextSpan.textContent = currentWord.substring(0, charIndex + 1);
-        charIndex++;
-        if (charIndex === currentWord.length) {
-          isDeleting = true;
-          setTimeout(typeLoop, pauseDelay); // warten nach vollem Wort
-        } else {
-          setTimeout(typeLoop, typingDelay);
-        }
-      } else {
-        typedTextSpan.textContent = currentWord.substring(0, charIndex - 1);
-        charIndex--;
-        if (charIndex === 0) {
-          isDeleting = false;
-          wordIndex = (wordIndex + 1) % words.length;
-          setTimeout(typeLoop, typingDelay);
-        } else {
-          setTimeout(typeLoop, erasingDelay);
-        }
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      if (words.length > 0) setTimeout(typeLoop, 1000);
-    });
-
-    // Navbar scroll behavior
-    const header = document.getElementById("header");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 10) {
-        header.classList.add("navscroll");
-      } else {
-        header.classList.remove("navscroll");
-      }
-    });
-
-  </script>
+  <script src="assets/js/main.js"></script>
 </body>
-
 </html>

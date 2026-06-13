@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Maximilian Mahrhofer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .contact-info {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+    }
+
+    .contact-item:last-child {
+      border-bottom: none;
+    }
+
+    .contact-item i {
+      font-size: 1.5rem;
+      color: #ff6b6b;
+      flex-shrink: 0;
+      margin-top: 0.5rem;
+    }
+
+    .contact-item h3 {
+      color: #ff6b6b;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-item p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .contact-item a {
+      color: rgba(255, 107, 107, 0.8);
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: #ff6b6b;
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header id="header">
+    <a href="../index.html" class="logo">M. Mahrhofer</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="skills.html">Skills</a>
+      <a href="education.html">Education</a>
+      <a href="experience.html">Experience</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
+
+  <section class="home">
+    <div class="home-content">
+      <h1>Get In <span class="span-color">Touch</span></h1>
+      <p>Let's discuss your next project</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="contact-container">
+
+      <div class="contact-info">
+        <h2 style="color: #ff6b6b; margin-bottom: 2rem;">Contact Information</h2>
+
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h3>Location</h3>
+            <p>Vienna, Austria</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h3>Email</h3>
+            <p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <h3>Phone</h3>
+            <p><a href="tel:+43123456789">+43 (0)123 456789</a></p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fas fa-link"></i>
+          <div>
+            <h3>Social Media</h3>
+            <p>
+              <a href="https://www.linkedin.com/in/maximilian-mahrhofer-8626732a1/" target="_blank">LinkedIn</a> |
+              <a href="https://github.com/kenji015" target="_blank">GitHub</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="form-container">
+          <h2>Send Message</h2>
+          <form>
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea rows="5" placeholder="Your Message..." required></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="glow-effect"></div>
+  <div class="glow-effect2"></div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
