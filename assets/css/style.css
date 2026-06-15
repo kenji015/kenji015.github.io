@@ -35,7 +35,8 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 100;
-  transition: all 0.3s ease;
+  transition: background 0.6s ease, box-shadow 0.6s ease, padding 0.4s ease, width 0.4s ease, border-radius 0.4s ease;
+
 }
 
 header.navscroll {
@@ -75,7 +76,7 @@ nav {
 }
 
 nav a {
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   color: rgba(255, 255, 255, 0.8);
   font-weight: 500;
   transition: all 0.3s ease;
@@ -112,10 +113,15 @@ nav a.active {
   z-index: 110;
 }
 
+/* Overlay – nur sichtbar auf Mobile via JS */
+.nav-overlay {
+  display: none;
+}
+
 /* ===== SECTIONS & GENERAL CONTENT ===== */
 section {
   min-height: 100vh;
-  padding: 8rem 9% 5rem;
+  padding: 12rem 9% 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -462,7 +468,32 @@ p {
   animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== DESKTOP – nav bleibt horizontal ===== */
+@media (min-width: 769px) {
+  nav {
+    position: static;
+    flex-direction: row;
+    height: auto;
+    width: auto;
+    max-width: none;
+    background: transparent;
+    border: none;
+    padding: 0;
+    gap: 3rem;
+    overflow: visible;
+    transition: none;
+  }
+
+  .nav-overlay {
+    display: none !important;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* ===== MOBILE – Drawer von rechts ===== */
 @media (max-width: 768px) {
   html {
     font-size: 55%;
@@ -470,6 +501,7 @@ p {
 
   header {
     padding: 1rem 5%;
+    top: 0;
   }
 
   header.navscroll {
@@ -482,37 +514,60 @@ p {
     font-size: 1.8rem;
   }
 
+  /* Drawer */
   nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    max-width: 280px;
+    height: 100vh;
     flex-direction: column;
-    background: rgba(10, 14, 39, 0.95);
-    padding: 2rem 0;
-    margin-top: 0.5rem;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+    align-items: flex-start;
+    background: rgba(10, 14, 39, 0.98);
+    border-left: 1px solid rgba(255, 107, 107, 0.2);
+    padding: 7rem 2rem 2rem;
+    gap: 0.5rem;
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 200;
+    overflow-y: auto;
   }
 
   nav.active {
-    max-height: 500px;
-    border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+    right: 0;
   }
 
   nav a {
-    padding: 1rem 2rem;
-    font-size: 1rem;
+    font-size: 1.4rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    width: 100%;
   }
 
   nav a::after {
     display: none;
   }
 
+  nav a:hover,
   nav a.active {
     color: #ff6b6b;
     background: rgba(255, 107, 107, 0.1);
+  }
+
+  /* Overlay */
+  .nav-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    pointer-events: none;
+    transition: background 0.35s ease;
+    z-index: 150;
+  }
+
+  .nav-overlay.active {
+    background: rgba(0, 0, 0, 0.5);
+    pointer-events: auto;
   }
 
   .menu-toggle {
@@ -520,7 +575,7 @@ p {
   }
 
   section {
-    padding: 5rem 5% 3rem;
+    padding: 8rem 5% 3rem;
     min-height: auto;
     margin-top: 3rem;
   }
@@ -584,3 +639,44 @@ p {
     font-size: 1.2rem;
   }
 }
+
+.experience-item {
+      background: rgba(255, 107, 107, 0.05);
+      border-left: 4px solid #ff6b6b;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 0.5rem;
+      animation: fadeInUp 0.8s ease-out;
+      transition: all 0.3s ease;
+    }
+
+    .experience-item:hover {
+      background: rgba(255, 107, 107, 0.1);
+      transform: translateX(10px);
+    }
+
+    .experience-item h3 {
+      color: #ff6b6b;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-item .year {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-item p {
+      margin: 0.5rem 0;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .experience-item ul {
+      margin-left: 1.5rem;
+      margin-top: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .experience-item li {
+      margin-bottom: 0.5rem;
+    }

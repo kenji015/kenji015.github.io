@@ -2,27 +2,39 @@
 function initMobileMenu() {
   const menuToggle = document.getElementById('menu-toggle');
   const nav = document.querySelector('header nav');
+  const overlay = document.getElementById('navOverlay');
 
-  if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
-      nav.classList.toggle('active');
-    });
+  if (!menuToggle || !nav) return;
 
-    // Close menu when clicking on a link
-    const navLinks = nav.querySelectorAll('a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('active');
-      });
-    });
+  function openNav() {
+    nav.classList.add('active');
+    if (overlay) overlay.classList.add('active');
   }
+
+  function closeNav() {
+    nav.classList.remove('active');
+    if (overlay) overlay.classList.remove('active');
+  }
+
+  menuToggle.addEventListener('click', openNav);
+
+  if (overlay) {
+    overlay.addEventListener('click', closeNav);
+  }
+
+  // Close menu when clicking on a link
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeNav);
+  });
 }
 
 // Navbar scroll behavior
 function initNavbarScroll() {
   const header = document.querySelector('header');
+  if (!header) return;
+
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 10) {
+    if (window.scrollY > 80) {
       header.classList.add('navscroll');
     } else {
       header.classList.remove('navscroll');
@@ -114,7 +126,6 @@ function initScrollAnimations() {
     });
   }, observerOptions);
 
-  // Observe all elements with data-animate attribute
   document.querySelectorAll('[data-animate]').forEach(el => {
     observer.observe(el);
   });
