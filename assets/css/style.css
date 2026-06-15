@@ -46,8 +46,9 @@ header.navscroll {
   padding: 1rem 3rem;
   width: calc(100% - 6rem);
   border-radius: 1rem;
-  box-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
-  border: 1px solid rgba(255, 107, 107, 0.2);
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.15);
+  border: 1px solid rgba(255, 107, 107, 0.15);
+  transition: all 0.5s ease;
 }
 
 .logo {
@@ -431,6 +432,36 @@ p {
   margin-bottom: 1rem;
 }
 
+/* ===== TWO COLUMN LAYOUT ===== */
+.page-container {
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.page-header {
+  position: sticky;
+  top: 150px;
+  animation: slideInRight 0.8s ease-out;
+}
+
+.page-header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.page-header p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.page-content {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   html {
@@ -510,6 +541,19 @@ p {
   .form-container {
     padding: 2rem;
     max-width: 100%;
+  }
+
+  .page-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .page-header {
+    position: static;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
   }
 }
 

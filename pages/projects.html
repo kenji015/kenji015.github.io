@@ -99,7 +99,6 @@
     <a href="../index.html" class="logo">M. Mahrhofer</a>
     <nav>
       <a href="../index.html">Home</a>
-      <a href="services.html">Services</a>
       <a href="skills.html">Skills</a>
       <a href="education.html">Education</a>
       <a href="experience.html">Experience</a>
@@ -111,79 +110,68 @@
     </div>
   </header>
 
-  <section class="home">
-    <div class="home-content">
-      <h1>My <span class="span-color">Projects</span></h1>
-      <p>A selection of my recent work and personal projects</p>
+  <section style="padding: 0; height: 100vh; display: grid; grid-template-columns: 50% 50%; gap: 0; overflow: hidden;">
+
+    <div style="display: flex; flex-direction: column; justify-content: center; padding: 0; padding-right: 2rem; text-align: right; overflow: hidden; padding-left: 3rem;">
+      <h1 style="font-size: 5.5rem; margin-bottom: 1.5rem; line-height: 1.1; font-weight: 700;">My <span class="span-color">Projects</span></h1>
+      <p style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.7); line-height: 1.6;">A selection of my recent work and personal projects</p>
     </div>
-  </section>
 
-  <section>
-    <div style="width: 100%; max-width: 1200px;">
-      <div class="projects-grid">
+    <div style="padding: 2rem; overflow-y: auto; display: flex; flex-direction: column; justify-content: flex-start; padding-top: calc(50vh - 80px); gap: 1.5rem;">
 
-        <div class="project-card" data-animate>
-          <div class="project-image">
-            <i class="fas fa-dumbbell"></i>
-          </div>
-          <div class="project-content">
-            <h3>MyGYM</h3>
-            <p>A comprehensive fitness tracking application focused on user experience and ease of use.</p>
-            <div class="project-tech">
-              <span>React</span>
-              <span>Node.js</span>
-              <span>Mobile</span>
-            </div>
-            <div class="project-links">
-              <a href="https://projekte.tgm.ac.at/3dhit/mmahrhofer/content/MyGym/view_files/home.php" target="_blank">
-                <i class="fas fa-external-link-alt"></i> View
-              </a>
-            </div>
-          </div>
+      <div class="project-card" style="padding: 1.5rem; gap: 1rem;">
+        <div style="width: 100%; height: 120px; background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(0, 150, 255, 0.1)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: #ff6b6b; border-radius: 0.5rem;">
+          <i class="fas fa-dumbbell"></i>
         </div>
-
-        <div class="project-card" data-animate>
-          <div class="project-image">
-            <i class="fas fa-wifi"></i>
+        <div>
+          <h3 style="font-size: 1.2rem;">MyGYM</h3>
+          <p style="font-size: 0.95rem;">A comprehensive fitness tracking application focused on user experience and ease of use.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.8rem 0;">
+            <span style="background: rgba(255, 107, 107, 0.2); color: #ff6b6b; padding: 0.2rem 0.6rem; border-radius: 0.3rem; font-size: 0.8rem;">React</span>
+            <span style="background: rgba(255, 107, 107, 0.2); color: #ff6b6b; padding: 0.2rem 0.6rem; border-radius: 0.3rem; font-size: 0.8rem;">Node.js</span>
           </div>
-          <div class="project-content">
-            <h3>TapTag</h3>
-            <p>A social NFC platform for digital contact networking and information sharing.</p>
-            <div class="project-tech">
-              <span>NFC</span>
-              <span>Web</span>
-              <span>Social</span>
-            </div>
-            <div class="project-links">
-              <a href="projects/taptag.html">
-                <i class="fas fa-arrow-right"></i> Details
-              </a>
-            </div>
-          </div>
+          <a href="https://projekte.tgm.ac.at/3dhit/mmahrhofer/content/MyGym/view_files/home.php" target="_blank" style="display: inline-block; padding: 0.5rem 1rem; background: rgba(255, 107, 107, 0.1); border: 1px solid rgba(255, 107, 107, 0.3); color: #ff6b6b; border-radius: 0.3rem; font-size: 0.85rem; cursor: pointer; transition: all 0.3s; text-decoration: none;">
+            <i class="fas fa-external-link-alt"></i> View
+          </a>
         </div>
-
-        <div class="project-card" data-animate>
-          <div class="project-image">
-            <i class="fas fa-droplet"></i>
-          </div>
-          <div class="project-content">
-            <h3>Trident</h3>
-            <p>A web-based tool for water analysis and environmental simulations.</p>
-            <div class="project-tech">
-              <span>Web</span>
-              <span>Data</span>
-              <span>Analytics</span>
-            </div>
-            <div class="project-links">
-              <a href="projects/trident.html">
-                <i class="fas fa-arrow-right"></i> Details
-              </a>
-            </div>
-          </div>
-        </div>
-
       </div>
+
+      <div class="project-card" style="padding: 1.5rem; gap: 1rem;">
+        <div style="width: 100%; height: 120px; background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(0, 150, 255, 0.1)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: #ff6b6b; border-radius: 0.5rem;">
+          <i class="fas fa-wifi"></i>
+        </div>
+        <div>
+          <h3 style="font-size: 1.2rem;">TapTag</h3>
+          <p style="font-size: 0.95rem;">A social NFC platform for digital contact networking and information sharing.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.8rem 0;">
+            <span style="background: rgba(255, 107, 107, 0.2); color: #ff6b6b; padding: 0.2rem 0.6rem; border-radius: 0.3rem; font-size: 0.8rem;">NFC</span>
+            <span style="background: rgba(255, 107, 107, 0.2); color: #ff6b6b; padding: 0.2rem 0.6rem; border-radius: 0.3rem; font-size: 0.8rem;">Web</span>
+          </div>
+          <a href="projects/taptag.html" style="display: inline-block; padding: 0.5rem 1rem; background: rgba(255, 107, 107, 0.1); border: 1px solid rgba(255, 107, 107, 0.3); color: #ff6b6b; border-radius: 0.3rem; font-size: 0.85rem; cursor: pointer; transition: all 0.3s; text-decoration: none;">
+            <i class="fas fa-arrow-right"></i> Details
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card" style="padding: 1.5rem; gap: 1rem;">
+        <div style="width: 100%; height: 120px; background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(0, 150, 255, 0.1)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: #ff6b6b; border-radius: 0.5rem;">
+          <i class="fas fa-droplet"></i>
+        </div>
+        <div>
+          <h3 style="font-size: 1.2rem;">Trident</h3>
+          <p style="font-size: 0.95rem;">A web-based tool for water analysis and environmental simulations.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.8rem 0;">
+            <span style="background: rgba(255, 107, 107, 0.2); color: #ff6b6b; padding: 0.2rem 0.6rem; border-radius: 0.3rem; font-size: 0.8rem;">Web</span>
+            <span style="background: rgba(255, 107, 107, 0.2); color: #ff6b6b; padding: 0.2rem 0.6rem; border-radius: 0.3rem; font-size: 0.8rem;">Data</span>
+          </div>
+          <a href="projects/trident.html" style="display: inline-block; padding: 0.5rem 1rem; background: rgba(255, 107, 107, 0.1); border: 1px solid rgba(255, 107, 107, 0.3); color: #ff6b6b; border-radius: 0.3rem; font-size: 0.85rem; cursor: pointer; transition: all 0.3s; text-decoration: none;">
+            <i class="fas fa-arrow-right"></i> Details
+          </a>
+        </div>
+      </div>
+
     </div>
+
   </section>
 
   <div class="glow-effect"></div>
