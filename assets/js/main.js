@@ -50,7 +50,6 @@ function initTypewriter() {
   const words = [
     'Web Developer',
     'Web Designer',
-    'IT-Security Specialist',
     'Photographer',
     'Script Writer'
   ];
